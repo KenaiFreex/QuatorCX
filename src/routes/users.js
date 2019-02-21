@@ -1,8 +1,15 @@
 const router = require('express').Router();
 
-router.get('/users',(req,res) => {
+router.get('/users/sign-up',(req,res) => {
 
-    res.send("Usuarios");
+    res.render("users/sign-up")
+
+
+});
+
+router.get('/users/sign-in',(req,res) => {
+
+    res.render("users/sign-in")
 
 
 });
