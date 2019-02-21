@@ -7,11 +7,17 @@ const session = require('express-session');
 
 const exphbs = require('express-handlebars');
 
+require('./database');
+
+
+
+
 //Settings || Configuración
 
 app.set('port', process.env.PORT || 3000); //Set port || Fijar puerto
 
 app.set('views',path.join(__dirname,'views')); //set views path || Fijar la carpeta de vistas(views)
+
 
 app.engine('.hbs',exphbs({
     defaultLayout: 'main',
@@ -19,9 +25,9 @@ app.engine('.hbs',exphbs({
     partialsDir: path.join(app.get('views'), 'partials'),
     extname : '.hbs'
 
-}));
+})); 
 
-app.set('view engine', '.hbs'); // Set view file format to express-handlebars
+app.set('view engine', '.hbs');
 
 
 
@@ -44,14 +50,14 @@ app.use(session({
 
 app.use(require('./routes/index'));
 app.use(require('./routes/reportes'));
-//app.use(require('./routes/user'));
-
+app.use(require('./routes/users'));
 
 
 
 
 // Static Files || Archivos Estáticos
 
+app.use(express.static(path.join(__dirname,'public')));
 
 
 // Server is Listening || Servidor escucha
@@ -59,5 +65,5 @@ app.use(require('./routes/reportes'));
 app.listen(app.get('port'),() => {
 
   console.log('Server on port ', app.get('port'));
-
+  console.log('directorio views: ', app.get('views'));
 });
