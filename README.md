@@ -1,3 +1,3 @@
-# HarnessTentant-RaspBerry-Web
-A web application made in nodejs that executes external python programs and generates reports from them.
+# QuatorCX
+A web application that compares hexadecimal colors through a camera.
 
