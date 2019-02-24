@@ -3,40 +3,72 @@ const router = express.Router();
 
 require('../models/Reports');
 
-router.get('/testing/', (req, res) => {
-  res.send('testing page');
+
+///////////////////////////////////////////
+//////////////////////////////////////////
+
+// --------- colorjobs Route ------------>
+router.get('/colorjobs/', (req, res) => {
+  res.send('colorjob page');
 });
 
+// --------- colorjobs Route ------------>
 
-router.get('/testing/add', (req, res) => {
-  res.render('testing/new-test');
+///////////////////////////////////////////
+//////////////////////////////////////////
+
+// --------- Adding a new Colorjob Route ------------>
+
+router.get('/colorjobs/add', (req, res) => {
+  res.render('colorjobs/new-colorjob');
 });
+// --------- Adding a new Colorjob Route ------------>
 
+///////////////////////////////////////////
+//////////////////////////////////////////
 
-router.post('/testing/new-test',(req,res) =>{
+// --------- New ColorJob POST ------------>
+router.post('/colorjobs/new-colorjob', (req, res) => {
 
-const {title,description} = req.body;
-const errors = [];
-
-if(!title){
-  errors.push({text: 'Please write a title'});
-}
-if (!description){
-  errors.push({text: 'Please Write a Description'});
-}
-
-if(errors.length > 0){
-  res.render('testing/new-test',{
-    errors,
+  const {
     title,
-    description,
-  });
+    description
+  } = req.body;
+  const errors = [];
 
-}else{
-  
-};
+  if (!title) {
+    errors.push({
+      text: 'Please write a title'
+    });
+  }
+  if (!description) {
+    errors.push({
+      text: 'Please Write a Description'
+    });
+  }
+
+  if (errors.length > 0) {
+    res.render('colorjobs/new-colorjob', {
+      errors,
+      title,
+      description,
+    });
+
+  } else {
+
+
+  };
 
 
 });
 
-module.exports = router; 
+// --------- New ColorJob POST ------------>
+
+///////////////////////////////////////////
+//////////////////////////////////////////
+
+// --------- Exporting Router ------------>
+
+module.exports = router;
+
+// --------- Exporting Router ------------>
