@@ -49,7 +49,7 @@ app.use(session({
 //Routes || rutas
 
 app.use(require('./routes/index'));
-app.use(require('./routes/testing'));
+app.use(require('./routes/reports'));
 app.use(require('./routes/users'));
 
 
