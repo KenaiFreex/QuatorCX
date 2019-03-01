@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/HarnessTentant',{
+mongoose.connect('mongodb://localhost/QuatorCX',{
 
     useCreateIndex: true,
     useNewUrlParser: true,
