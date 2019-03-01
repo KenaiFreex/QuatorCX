@@ -1,7 +1,15 @@
 body{
 
-    background: #F3904F;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top,#ffcea3, #f79f01);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top,#fcd4b2, #f79f01) fixed no-repeat; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #a90329; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #a90329 0%, #7c3862 89%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #a90329 0%,#7c3862 89%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #a90329 0%,#7c3862 89%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#7c3862',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 }
+
+main{
+    padding-top: 2%; 
+    padding-bottom: 32%;
+}
+
