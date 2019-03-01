@@ -1,15 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-require('../models/Reports');
+const Colorjob = require('../models/Colorjob');
 
 
 ///////////////////////////////////////////
 //////////////////////////////////////////
 
 // --------- colorjobs Route ------------>
-router.get('/colorjobs/', (req, res) => {
-  res.send('colorjob page');
+router.get('/colorjobs',async (req, res) => {
+
+  const colorjob = await Colorjob.find();
+  res.render('colorjobs/all-colorjobs', { colorjob });
+  
 });
 
 // --------- colorjobs Route ------------>
@@ -28,7 +31,7 @@ router.get('/colorjobs/add', (req, res) => {
 //////////////////////////////////////////
 
 // --------- New ColorJob POST ------------>
-router.post('/colorjobs/new-colorjob', (req, res) => {
+router.post('/colorjobs/new-colorjob', async (req, res) => {
 
   const {
     title,
@@ -56,7 +59,10 @@ router.post('/colorjobs/new-colorjob', (req, res) => {
 
   } else {
 
-
+    const newColorjob = new Colorjob({title,description});
+    await newColorjob.save();
+    res.redirect('/Colorjobs');
+    
   };
 
 
